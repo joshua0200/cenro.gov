@@ -29,13 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Company
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -80,53 +74,93 @@
         </div>
 
         <div class="row">
-         <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">APPLICATION FOR SURVEY AUTHORITY</a></h3>
-            </div>
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="1">
+              <div class="icon-box">
+                <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
+                <h3><a href="">APPLICATION FOR SURVEY AUTHORITY (SA)</a></h3>
+              </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">APPLICATION FOR TREE CUTTING PERMIT</a></h3>
-            </div>
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="2">
+              <div class="icon-box">
+                <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
+                <h3><a href="">APPLICATION FOR TREE CUTTING PERMIT</a></h3>
+              </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="3">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="">CHECKLIST FOR 211 VALIDATION</a></h3>
             </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="4">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="">TOWNSITE SALE APLICATION (TSA)</a></h3>
             </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="5">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="">MISCELLANEOUS SALES APPLICATION (MSA)</a></h3>
             </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="6">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="">AGRICULTURAL FREE PATENT APPLICATION (FPA)</a></h3>
             </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="7">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="">RESIDENTIAL FREE PATENT APPLICATION (RFPA)</a></h3>
             </div>
+            </button>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
+
+          <div class="col-lg-3 col-md-4 m-0">
+            <form action="steps.php" method="post">
+            <button class="btn " type="submit" name="stepsValue" value="8">
             <div class="icon-box">
               <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
               <h3><a href="steps.php">Chainsaw Registration Application</a></h3>
             </div>
+            </button>
+            </form>
           </div>
 
           </div>

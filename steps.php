@@ -35,9 +35,12 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-    <?php include "navbar.php";?>
+    <?php 
+    include "navbar.php";
+    include "config.php";
+    ?>
   </header><!-- End Header -->
-
+  
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -63,18 +66,41 @@
         <div class="row gy-4">
 
           <div class="col-lg-12">
+            <?php
+
+              if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (isset($_POST["stepsValue"])) {
+                    $selectedButtonValue = $_POST["stepsValue"];
+
+                    $sql = "SELECT * FROM services WHERE service_id = 1";
+                    $result = $mysqli->query($sql);
+
+                    if ($result->num_rows > 0) {
+                      while ($row = $result->fetch_assoc()) {          
+            ?>
+
             <div class="portfolio-info">
-              <h3>Chainsaw Registration Application</h3>
-              <ul>
-                <li><strong>Step 1</strong>: sample</li>
-                <li><strong>Step 2</strong>: sample</li>
-                <li><strong>Step 3</strong>: sample</li>
-                <li><strong>Step 4</strong>: sample</li>
-              </ul>
+              <h3><?php echo $row["serviceLabel"]; ?></h3>
+              <p> <?php echo $row["serviceSteps"];?></p>
+
+              <?php
+                $filename = $row['serviceLabel'];
+
+              ?>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of Application Page</h2>
-
+              <h5>Download Application Form here:</h5>
+              <a href="download.php?file=<?php echo $filename;?>"><button class="btn btn-outline-success"><?php echo $filename;?></button></a>
+              <?php            
+                      }
+                    } else {
+                        echo "No results found.";
+                    }
+                  } else {
+                    echo "No button value selected.";
+                }
+              }
+              ?>
             </div>
           </div>
 
