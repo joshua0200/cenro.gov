@@ -33,9 +33,20 @@
 </head>
 
 <body>
-
+<?php
+	session_start();
+  if(isset($_SESSION['login_id']) != 0){
+    
+    //header('location:login.php');
+    include "admin_nav.php";
+  }
+  else {
+   include "navbar.php";
+  }
+ include('./header.php');
+ // include('./auth.php'); 
+ ?>
   <!-- ======= Header ======= -->
-  <?php include "navbar.php";?>
 <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -48,7 +59,7 @@
         <div class="carousel-item active" style="background-image: url(assets/img/slide/JMAP-2646.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>Welcome to <span>DENR-CAR CENRO Baguio</span></h2>
+              <h2>Welcome to <span>DENR-CAR CENRO Baguio: </span> <?php echo $_SESSION['login_id']; ?></h2>
               <h3>DEVELOPMENT GOAL</h3>
               <p>Human well-being, and environmental quality and sustainability ensured. </p>
               

@@ -35,6 +35,7 @@
           <li><a class="<?= ($activePage == 'portfolio') ? 'active':''; ?>" href="Cases.php">Case Status</a></li>
           <li><a class="<?= ($activePage == 'blog') ? 'active':''; ?>" href="blog.php">Activities</a></li>
           <li><a class="<?= ($activePage == 'contact') ? 'active':''; ?>" href="contact.php">Contact</a></li>
+          <li><a class="<?= ($activePage == 'adminCorner') ? 'active':''; ?>" href="adminCorner.php">Admin Corner</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -47,7 +48,8 @@
         <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
       </div>
 
-
-
+      <div class="header d-flex">
+        <a href="ajax.php?action=logout">Sign out</a>
+      </div>
     </div>
   </header>

@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up">
+        <!-- <div class="row portfolio-container" data-aos="fade-up">
           <div class="col-lg-1 col-md-6 portfolio-item filter-app">
           </div>
           <div class="col-lg-10 col-md-6 portfolio-item filter-app">
@@ -98,6 +98,29 @@
               </tr>
             </tbody>
           </table>
+          </div> -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card md-3">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <th class="text-center">#</th>
+                      <th class="text-center">Cases</th>
+                      <th class="text-center">Status</th>
+                      <?php 
+                        if(isset($_SESSION['login_id']) && $_SESSION['login_id'] != 0){
+                          echo $_SESSION['login_id'];
+                          echo '<th class="text-center">Actions</th>';
+                        }
+                      ?>
+                      
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
 
 
