@@ -48,7 +48,11 @@
         <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
       </div>
 
-      <div class="header d-flex">
+      <div class="header">
+
+      </div>
+
+      <div class="header d-flex ms-4">
         <a href="ajax.php?action=logout">Sign out</a>
       </div>
     </div>

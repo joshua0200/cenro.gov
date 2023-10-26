@@ -36,6 +36,13 @@
           <li><a class="<?= ($activePage == 'blog') ? 'active':''; ?>" href="blog.php">Activities</a></li>
           <li><a class="<?= ($activePage == 'contact') ? 'active':''; ?>" href="contact.php">Contact</a></li>
 
+          <?php 
+            if(isset($_SESSION['user_id']) != 0){
+              echo '<li><a class="' . ($activePage == 'adminCorner' ? 'active' : '') . '" href="adminCorner.php">Admin Corner</a></li>';
+            }
+
+          ?>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

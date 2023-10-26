@@ -35,7 +35,7 @@
 <body>
 <?php
 	session_start();
-  if(isset($_SESSION['login_id']) != 0){
+  if(isset($_SESSION['user_id']) != 0){
     
     //header('location:login.php');
     include "admin_nav.php";
@@ -59,7 +59,11 @@
         <div class="carousel-item active" style="background-image: url(assets/img/slide/JMAP-2646.jpg);">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>Welcome to <span>DENR-CAR CENRO Baguio: </span> <?php echo $_SESSION['login_id']; ?></h2>
+              <h2>Welcome to <span>DENR-CAR CENRO Baguio: </span> <?php
+                if(isset($_SESSION['user_id']) != 0){
+                  echo $_SESSION['username'];
+                }
+               ?></h2>
               <h3>DEVELOPMENT GOAL</h3>
               <p>Human well-being, and environmental quality and sustainability ensured. </p>
               
