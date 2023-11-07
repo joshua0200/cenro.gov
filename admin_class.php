@@ -60,6 +60,51 @@ class Action{
 		header("location:../index.php");
 	}
 
+	function save_cases()
+	{
+		extract($_POST);
+		$data = " case_desc = '$label' ";
+		$data .= ", status = '$status' ";
 
+		if (empty($id)) {
+			$save = $this->db->query("INSERT INTO cases set " . $data);
+
+		} else {
+			$save = $this->db->query("UPDATE cases set " . $data . " where id=" . $id);
+			//$this->db->query("INSERT INTO `logs`( `type`, `message`, `user_id`, `date_updated`) VALUES ('Update','Supplier has been updated: $name','" . $_SESSION['login_id'] . "', '" . date('Y-m-d h:i:s') . "')");
+		}
+		if ($save)
+			return 1;
+	}
+
+	function save_case(){
+		include "config.php";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$label = $_POST["label"];
+			$status = $_POST["status"];
+		
+			// Insert data into the database
+			$sql = "INSERT INTO cases (case_desc, stat) VALUES (?, ?)";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("si", $label, $status);
+		
+			if ($stmt->execute()) {
+				return 1;
+			} else {
+				echo "Error: " . $stmt->error;
+			}
+		
+			$stmt->close();
+		}
+	}
+
+	function delete_case()
+	{
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM cases where id = " . $id);
+		//$this->db->query("INSERT INTO `logs`( `type`, `message`, `user_id`, `date_updated`) VALUES ('Delete','Supplier deleted','" . $_SESSION['login_id'] . "', '" . date('Y-m-d h:i:s') . "')");
+		if ($delete)
+			return 1;
+	}
 }
 ?>

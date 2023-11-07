@@ -29,20 +29,25 @@
 
  
   <link href="assets/css/style.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
 </head>
 
 <body>
 <?php
-	session_start();
-  if(isset($_SESSION['user_id']) != 0){
+	//session_start();
+  // if(isset($_SESSION['user_id']) != 0){
     
-    //header('location:login.php');
-    include "admin_nav.php";
-  }
-  else {
-   include "navbar.php";
-  }
+  //   //header('location:login.php');
+  //   include "navbar.php";
+  // }
+  // else {
+  //  include "navbar.php";
+  // }
+  include('switchNav.php');
  include('./header.php');
  // include('./auth.php'); 
  ?>

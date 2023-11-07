@@ -6,7 +6,9 @@
       <a href="index.php" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
-      <?php include "header.php" ?>
+      <?php include "header.php";
+      session_start();
+      ?>
         <ul>
           <li><a href="index.php" class="<?= ($activePage == 'index') ? 'active':''; ?>">Home</a></li>
 
@@ -19,8 +21,8 @@
             </ul>
           </li>
 
-        <li class="dropdown"><a href="services.php"><span>Services</span><i class="bi bi-chevron-down"></i></a>
-            <ul>
+        <li class="dropdown"><a href="services.php"><span>Services</span></a>
+            <!-- <ul>
                 <li><a href="#">APPLICATION FOR SURVEY AUTHORITY <i class="bi bi-chevron-right"></a></i></li>
                 <li><a href="#">APPLICATION FOR TREE CUTTING PERMIT <i class="bi bi-chevron-right"></a></i></li>
                 <li><a href="#">CHECKLIST FOR 211 VALIDATION <i class="bi bi-chevron-right"></i></a></li>
@@ -29,7 +31,7 @@
                 <li><a href="#">AGRICULTURAL FREE PATENT APPLICATION (FPA) <i class="bi bi-chevron-right"></i></a></li>
                 <li><a href="#">RESIDENTIAL FREE PATENT APPLICATION (RFPA) <i class="bi bi-chevron-right"></i></a></li>
                 <li><a href="steps.php">CHAINSAW REGISTRATION APPLICATION<i class="bi bi-chevron-right"></i></a></li>
-            </ul>
+            </ul> -->
         </li>
 
           <li><a class="<?= ($activePage == 'portfolio') ? 'active':''; ?>" href="Cases.php">Case Status</a></li>
@@ -37,9 +39,9 @@
           <li><a class="<?= ($activePage == 'contact') ? 'active':''; ?>" href="contact.php">Contact</a></li>
 
           <?php 
-            if(isset($_SESSION['user_id']) != 0){
-              echo '<li><a class="' . ($activePage == 'adminCorner' ? 'active' : '') . '" href="adminCorner.php">Admin Corner</a></li>';
-            }
+          //  if(isset($_SESSION['user_id']) != 0){
+          //     echo '<li><a class="' . ($activePage == 'adminCorner' ? 'active' : '') . '" href="adminCorner.php">Admin Corner</a></li>';
+          //   } 
 
           ?>
 
@@ -54,7 +56,13 @@
         <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
       </div>
 
-
+      <div class="header d-flex ms-4">
+        <?php 
+          if(isset($_SESSION['user_id']) != 0){
+        ?>
+        <?php echo "<a href='ajax.php?action=logout'>Sign out</a>"; ?>
+        <?php } ?>
+      </div>
 
     </div>
   </header>

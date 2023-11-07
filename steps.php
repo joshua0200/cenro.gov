@@ -72,7 +72,7 @@
                 if (isset($_POST["stepsValue"])) {
                     $selectedButtonValue = $_POST["stepsValue"];
 
-                    $sql = "SELECT * FROM services WHERE service_id = 1";
+                    $sql = "SELECT * FROM services WHERE service_id = $selectedButtonValue";
                     $result = $mysqli->query($sql);
 
                     if ($result->num_rows > 0) {

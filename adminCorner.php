@@ -32,7 +32,7 @@
 <body>
     <?php 
         include('./header.php');
-        include "admin_nav.php"; 
+        include('switchNav.php');
     ?>
 
     <div class="row">

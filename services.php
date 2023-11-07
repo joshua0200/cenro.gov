@@ -36,7 +36,8 @@
 
   <!-- ======= Header ======= -->
   <?php
-    include "navbar.php"; 
+    include "navbar.php";
+    include "config.php";
   ?>
   <!-- End Header -->
 
@@ -75,18 +76,32 @@
 
         <div class="row">
 
+          <?php
+            $i = 1;
+            $sql = "SELECT * FROM services order by service_id asc";
+            $result = $mysqli->query($sql);
+
+            if ($result->num_rows > 0){
+              while ($row = $result->fetch_assoc()) :
+          ?>          
+
           <div class="col-lg-3 col-md-4 m-0">
             <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="1">
+            <button class="btn " type="submit" name="stepsValue" value="<?php echo $row['service_id'] ?>">
               <div class="icon-box">
                 <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-                <h3><a href="">APPLICATION FOR SURVEY AUTHORITY (SA)</a></h3>
+                <h3><?php echo $row['serviceLabel'] ?></h3>
               </div>
             </button>
             </form>
           </div>
 
-          <div class="col-lg-3 col-md-4 m-0">
+          <?php 
+            endwhile;
+          }
+          ?>
+
+          <!-- <div class="col-lg-3 col-md-4 m-0">
             <form action="steps.php" method="post">
             <button class="btn " type="submit" name="stepsValue" value="2">
               <div class="icon-box">
@@ -161,7 +176,7 @@
             </div>
             </button>
             </form>
-          </div>
+          </div> -->
 
           </div>
         </div>
