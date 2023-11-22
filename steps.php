@@ -47,6 +47,7 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
+
         <div class="d-flex justify-content-between align-items-center">
           <h2>STEPS</h2>
           <ol>
@@ -76,22 +77,36 @@
                     $result = $mysqli->query($sql);
 
                     if ($result->num_rows > 0) {
-                      while ($row = $result->fetch_assoc()) {          
+                      while ($row = $result->fetch_assoc()) {
+                        $filename2 = $row['serviceLabel'];          
             ?>
 
             <div class="portfolio-info">
               <h3><?php echo $row["serviceLabel"]; ?></h3>
-              <p> <?php echo $row["serviceSteps"];?></p>
+              <h5> APPLICATION STEPS</h5><br>
+              <p> <?php echo nl2br($row["serviceSteps"]);?></p>
+              <hr>
+              <br>
+              <h4> CHECKLIST OF REQUIREMENTS</h4>
+              <h6> Download Checklist Here:</h6>
+              <a href="download.php?file=<?php echo $filename2;?> checklist"><button class="btn btn-outline-success"><?php echo $filename2;?> Checklist</button></a>
+              
 
               <?php
                 $filename = $row['serviceLabel'];
+                $file = "forms/application forms/".$filename.".pdf";
 
               ?>
             </div>
             <div class="portfolio-description">
+              <?php if(file_exists($file)){
+                
+
+                ?>
               <h5>Download Application Form here:</h5>
               <a href="download.php?file=<?php echo $filename;?>"><button class="btn btn-outline-success"><?php echo $filename;?></button></a>
-              <?php            
+              <?php
+                        }            
                       }
                     } else {
                         echo "No results found.";

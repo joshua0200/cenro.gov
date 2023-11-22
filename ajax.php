@@ -16,20 +16,8 @@ if ($action == 'logout') {
 		echo $logout;
 }
 
-if ($action == "save_cases") {
-	$save = $crud->save_cases();
-	if ($save)
-		echo $save;
-}
-
-if ($action == "save_case") {
-	$save = $crud->save_case();
-	if ($save)
-		echo $save;
-}
-
-if ($action == "delete_case") {
-	$save = $crud->delete_case();
+if ($action == "save_service") {
+	$save = $crud->save_service();
 	if ($save)
 		echo $save;
 }

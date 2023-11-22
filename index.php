@@ -38,18 +38,9 @@
 
 <body>
 <?php
-	//session_start();
-  // if(isset($_SESSION['user_id']) != 0){
-    
-  //   //header('location:login.php');
-  //   include "navbar.php";
-  // }
-  // else {
-  //  include "navbar.php";
-  // }
+
   include('switchNav.php');
- include('./header.php');
- // include('./auth.php'); 
+  include('./header.php');
  ?>
   <!-- ======= Header ======= -->
 <!-- End Header -->

@@ -68,7 +68,55 @@
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
       <div class="container" data-aos="fade-up">
+      <div class="row">
+      <?php
+              if(isset($_SESSION['user_id']) != 0){ 
+            ?>
 
+            <div class="col-md-12 mb-5">
+                <form id="form" action="saveService.php" method="POST">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><b>Services Form</b></h4>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" name="id">
+
+
+                            <div class="row">
+                                <input type="hidden" name="id">
+                                <!-- <label class="control-label"><b>Case Label:</b></label> -->
+                              <div class="col-8">
+                                <label class="control-label"><b>Service Label:</b></label>
+                                <input type="text" class="form-control mb-2" name="label" required>
+                              </div>
+                              <div class="col-8">
+                                <label class="control-label"><b>Steps:</b></label>
+                                <textarea  class="form-control mb-2" name="serviceSteps" required></textarea>
+                                <!-- <input type="text" class="form-control mb-2" name="caseDetails" required> -->
+                              </div>
+                            </div>
+                            <br>
+                            <button class="btn btn-success" type="submit" id="submitButton">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- PHP FUNCTION -->
+            <?php
+
+
+              // Call the function
+              // save_service();
+?>
+
+            <!-- END PHP FUNCTION -->
+
+
+            <?php } ?>
+          </div>
         <div class="section-title">
           <h2>Applications</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
@@ -101,82 +149,6 @@
           }
           ?>
 
-          <!-- <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="2">
-              <div class="icon-box">
-                <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-                <h3><a href="">APPLICATION FOR TREE CUTTING PERMIT</a></h3>
-              </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="3">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">CHECKLIST FOR 211 VALIDATION</a></h3>
-            </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">TOWNSITE SALE APLICATION (TSA)</a></h3>
-            </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="5">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">MISCELLANEOUS SALES APPLICATION (MSA)</a></h3>
-            </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="6">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">AGRICULTURAL FREE PATENT APPLICATION (FPA)</a></h3>
-            </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="7">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="">RESIDENTIAL FREE PATENT APPLICATION (RFPA)</a></h3>
-            </div>
-            </button>
-            </form>
-          </div>
-
-          <div class="col-lg-3 col-md-4 m-0">
-            <form action="steps.php" method="post">
-            <button class="btn " type="submit" name="stepsValue" value="8">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #5578ff;"></i>
-              <h3><a href="steps.php">Chainsaw Registration Application</a></h3>
-            </div>
-            </button>
-            </form>
-          </div> -->
 
           </div>
         </div>
@@ -205,6 +177,87 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <script>
+  $(document).ready(function () {
+    // Handle the Edit button click event
+    $(".edit_case").click(function () {
+      var id = $(this).data("id");
+      var name = $(this).data("serviceLabel");
+      var serviceSteps = $(this).data("serviceSteps");
+
+      // Set the form fields with the data
+      $("form").attr("action", "saveService.php");
+      $("input[name='id']").val(id);
+      $("input[name='label']").val(name);
+      $("textarea[name='caseDetails']").val(serviceSteps );
+
+      // You can set the select option here too if needed
+      // var status = ...; // Get status value
+      // $("#status").val(status);
+
+      // Scroll to the form
+      $("html, body").animate({
+        scrollTop: $("form").offset().top,
+      });
+    });
+
+    // Handle the Form submission
+    $("form").submit(function (e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      var formData = $(this).serialize();
+
+      $.ajax({
+        type: "POST",
+        url: $(this).attr("action"),
+        data: formData,
+        success: function (response) {
+          // Handle the response from services.php
+          
+          location.reload()
+          alert('Data saved successfully');
+
+          // You can also reload the page or update the case list here
+        },
+        error: function (error) {
+          alert("Error: " + error);
+        },
+      });
+    });
+
+    // Handle the Delete button click event
+    $(".delete_case").on("click", function () {
+            var service_id = $(this).data("id");
+
+            // Set the data-id attribute of the delete button in the modal
+            $("#confirmDeleteBtn").data("id", service_id);
+
+            // Show the delete confirmation modal
+            $("#deleteConfirmationModal").modal("show");
+        });
+
+        // Confirm delete button click event
+        $("#confirmDeleteBtn").on("click", function () {
+            var service_id = $(this).data("id");
+
+            // Make an AJAX request to delete the case
+            $.ajax({
+                url: "delete_case.php", // Create a separate PHP file for deleting cases
+                type: "POST",
+                data: { id: service_id },
+                success: function (response) {
+                    // Handle the response (e.g., reload the page)
+                    location.reload();
+                },
+                error: function (error) {
+                    console.error("Error deleting case:", error);
+                }
+            });
+        });
+  });
+</script>
+
 
 </body>
 

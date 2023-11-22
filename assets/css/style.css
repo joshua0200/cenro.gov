@@ -23,9 +23,14 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
-p:hover {
+/* br {
+  margin-top: auto;
+  margin-bottom: auto;
+} */
+
+/* p:hover {
   color: #2ae149;
-}
+} */
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

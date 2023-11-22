@@ -60,51 +60,77 @@ class Action{
 		header("location:../index.php");
 	}
 
-	function save_cases()
+	function save_ser()
 	{
-		extract($_POST);
-		$data = " case_desc = '$label' ";
-		$data .= ", status = '$status' ";
-
-		if (empty($id)) {
-			$save = $this->db->query("INSERT INTO cases set " . $data);
-
-		} else {
-			$save = $this->db->query("UPDATE cases set " . $data . " where id=" . $id);
-			//$this->db->query("INSERT INTO `logs`( `type`, `message`, `user_id`, `date_updated`) VALUES ('Update','Supplier has been updated: $name','" . $_SESSION['login_id'] . "', '" . date('Y-m-d h:i:s') . "')");
-		}
-		if ($save)
-			return 1;
-	}
-
-	function save_case(){
 		include "config.php";
+
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$label = $_POST["label"];
-			$status = $_POST["status"];
+			$details = $_POST["serviceSteps"];
+			$id = $_POST["id"]; // Get the id if it exists
 		
-			// Insert data into the database
-			$sql = "INSERT INTO cases (case_desc, stat) VALUES (?, ?)";
+			if (empty($id)) {
+				// No id provided, so we're inserting a new record
+				$sql = "INSERT INTO services (serviceLabel, serviceSteps) VALUES (?, ?)";
+			} 
+			// else {
+			// 	// An id is provided, so we're updating an existing record
+			// 	$sql = "UPDATE services SET serviceLabel = ?, case_desc = ?, case_details=?, stat = ? WHERE case_id = ?";
+			// }
+		
 			$stmt = $mysqli->prepare($sql);
-			$stmt->bind_param("si", $label, $status);
+		
+			if (empty($id)) { 
+				$stmt->bind_param("ss", $label, $details);
+			} else {
+				$stmt->bind_param("ssi", $label, $details, $id);
+			}
 		
 			if ($stmt->execute()) {
-				return 1;
+				echo "Data inserted or updated successfully.";
+				
+				//header("Location: cases.php");
 			} else {
 				echo "Error: " . $stmt->error;
 			}
 		
 			$stmt->close();
 		}
+		
+		
 	}
 
-	function delete_case()
+	function save_service()
 	{
-		extract($_POST);
-		$delete = $this->db->query("DELETE FROM cases where id = " . $id);
-		//$this->db->query("INSERT INTO `logs`( `type`, `message`, `user_id`, `date_updated`) VALUES ('Delete','Supplier deleted','" . $_SESSION['login_id'] . "', '" . date('Y-m-d h:i:s') . "')");
-		if ($delete)
-			return 1;
+		include "config.php"; // Include your database configuration file
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$label = $_POST["label"];
+			$serviceSteps = $_POST["serviceSteps"];
+			$id = $_POST["id"];
+
+			// Validate and sanitize input if needed
+
+			// Insert or update the data in the database
+			if (empty($id)) {
+				$sql = "INSERT INTO services (serviceLabel, serviceSteps) VALUES (?, ?)";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("ss", $label, $serviceSteps);
+			} else {
+				$sql = "UPDATE services SET serviceLabel = ?, serviceSteps = ? WHERE id = ?";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("ssi", $label, $serviceSteps, $id);
+			}
+
+			if ($stmt->execute()) {
+				echo "Service data saved successfully.";
+			} else {
+				echo "Error: " . $stmt->error;
+			}
+
+			$stmt->close();
+			$mysqli->close();
+		}
 	}
 }
 ?>

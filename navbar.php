@@ -1,10 +1,11 @@
+
+
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
         
-      <!-- <h1 class="logo me-auto"><a href="index.html"><img style="size: 100px;" class="img-fluid" src="assets/img/logo.png" alt=""></a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="index.php" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-
+      <!-- <h6>DENR-CAR CENRO BAGUIO</h6> -->
       <nav id="navbar" class="navbar order-last order-lg-0">
       <?php include "header.php";
       session_start();
@@ -16,37 +17,18 @@
             <ul>
               <li><a class="<?= ($activePage == 'about') ? 'active':''; ?>" href="about.php">About Us</a></li>
               <li><a href="team.php">Team</a></li>
-              <li><a href="testimonials.php">Testimonials</a></li>
+              
               
             </ul>
           </li>
 
-        <li class="dropdown"><a href="services.php"><span>Services</span></a>
-            <!-- <ul>
-                <li><a href="#">APPLICATION FOR SURVEY AUTHORITY <i class="bi bi-chevron-right"></a></i></li>
-                <li><a href="#">APPLICATION FOR TREE CUTTING PERMIT <i class="bi bi-chevron-right"></a></i></li>
-                <li><a href="#">CHECKLIST FOR 211 VALIDATION <i class="bi bi-chevron-right"></i></a></li>
-                <li><a href="#">TOWNSITE SALE APLICATION (TSA) <i class="bi bi-chevron-right"></i></a></li>
-                <li><a href="#">MISCELLANEOUS SALES APPLICATION (MSA) <i class="bi bi-chevron-right"></i></a></li>
-                <li><a href="#">AGRICULTURAL FREE PATENT APPLICATION (FPA) <i class="bi bi-chevron-right"></i></a></li>
-                <li><a href="#">RESIDENTIAL FREE PATENT APPLICATION (RFPA) <i class="bi bi-chevron-right"></i></a></li>
-                <li><a href="steps.php">CHAINSAW REGISTRATION APPLICATION<i class="bi bi-chevron-right"></i></a></li>
-            </ul> -->
-        </li>
-
+          <li class="dropdown"><a href="services.php"><span>Services</span></a></li>
           <li><a class="<?= ($activePage == 'portfolio') ? 'active':''; ?>" href="Cases.php">Case Status</a></li>
           <li><a class="<?= ($activePage == 'blog') ? 'active':''; ?>" href="blog.php">Activities</a></li>
           <li><a class="<?= ($activePage == 'contact') ? 'active':''; ?>" href="contact.php">Contact</a></li>
 
-          <?php 
-          //  if(isset($_SESSION['user_id']) != 0){
-          //     echo '<li><a class="' . ($activePage == 'adminCorner' ? 'active' : '') . '" href="adminCorner.php">Admin Corner</a></li>';
-          //   } 
-
-          ?>
-
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+          <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
       <div class="header-social-links d-flex">
